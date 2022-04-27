@@ -15,7 +15,10 @@ class CreateStatesTable extends Migration
     {
         Schema::create('states', function (Blueprint $table) {
             $table->id();
-            $table->timestamps();
+            $table->integer('likes');
+            $table->integer('views');
+            $table->unsignedBigInteger('article_id');
+ //           $table->timestamps();
         });
     }
 
