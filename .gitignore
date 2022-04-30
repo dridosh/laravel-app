@@ -15,3 +15,7 @@ yarn-error.log
 /.vscode
 /_docker/sda
 /_docker/sda/db
+_ide_helper.php
+/zero
+
+
