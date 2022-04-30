@@ -17,5 +17,6 @@ yarn-error.log
 /_docker/sda/db
 _ide_helper.php
 /zero
+/public
 
 
