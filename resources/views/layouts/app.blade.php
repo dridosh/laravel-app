@@ -17,7 +17,6 @@
     </head>
     <body>
         <div class="container">
-
             <nav class="navbar navbar-expand bg-light navbar-light">
                 <div class="container-fluid">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
@@ -35,27 +34,10 @@
                     </a>
                 </div>
             </nav>
-            <div class="hero" style="background-image: url(/img/susan-q-yin-2JIvboGLeho-unsplash_sm.jpg);">
-                <div class="container h-100">
-                    <div class="row h-100 align-items-center">
-                        <div class="col-12">
-                            <div class="hero__content text-center">
-                                <div class="hero__content-tag">
-                                    <a href="#">Разработчик PHP - Laravel - Vue.js</a>
-                                </div>
-                                <h2><a href="#">Тестовое задание</a></h2>
-
-{{--                                <div class="hero__content-tag">--}}
-{{--                                    <a href="#">rdb.com</a>--}}
-{{--                                </div>--}}
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-
-
+            @yield('hero')
+            @yield('content')
+            @yield('vue')
         </div>
+
     </body>
 </html>

@@ -26,10 +26,8 @@ class ArticleFactory extends Factory
             'title'=>$title,
             'body'=>$this->faker->paragraph(100,true),
             'slug'=>$slug,
-            'img'=>'https://via.placeholder.com/600/5F113B/FFFFFF/?text=LARAVEL:8.*',
+            'img'=>'https://via.placeholder.com/600/5F132A/FFFFFF/?text=LARAVEL:9.*',
             'created_at'=>$this->faker->dateTimeBetween('-1 years'),
-
-
         ];
     }
 }
