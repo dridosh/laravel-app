@@ -10,6 +10,8 @@ class Article extends Model
 {
     use HasFactory;
 
+    protected $dates = ['published_at'];
+
     protected $fillable = ['title', 'body', 'img', 'slug'];
 
     public function comments () {
@@ -31,7 +33,10 @@ class Article extends Model
 
     public function createdAtForHumans () {
         return $this->created_at->diffForHumans();
+    }
 
+    public function publishedAtForHumans () {
+        return $this->published_at->diffForHumans();
     }
 
     public function scopeLastLimit ($query,$numbers) {
