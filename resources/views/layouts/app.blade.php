@@ -21,12 +21,12 @@
                 <div class="container-fluid">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                         <li class="nav-item">
-                            <a class="nav-link {{ request() -> is('/') ? 'menu-link__active' : 'menu-link'}}"
+                            <a class="nav-link {{ activeMainLink ()}}"
                                href="{{route('home')}}">Главная страница</a>
 
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link {{ request() -> is('articles') ? 'menu-link__active' : 'menu-link'}} "
+                            <a class="nav-link {{ activeArticleLink ()}} "
                                href="{{route('article.index')}}">Каталог статей</a>
                         </li>
                     </ul>
