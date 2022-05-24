@@ -11,5 +11,6 @@ class ArticleController extends Controller
         $articles= Article::allPaginate(9);
         return view('app.article.index', compact('articles'));
 
+
     }
 }
