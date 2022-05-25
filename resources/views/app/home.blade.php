@@ -15,7 +15,7 @@
                         <p class="card-text">{{$article->getBodyPreview()}}</p>
                         <p>Публикация: {{$article->published_at->format('d.m.Y H:i')}}</p>
                         <p>{{$article->publishedAtForHumans()}}</p>
-                        <a href="#" class="btn btn-primary">Подробнее</a>
+                        <a href="{{route('article.show',$article->slug)}}" class="btn btn-primary">Подробнее</a>
                         <div class="mt-3">
                             <span class="badge bg-primary">{{$article->state->likes}} <i class="far fa-thumbs-up"></i></span>
                             <span class="badge bg-danger">{{$article->state->views}} <i class="far fa-eye"></i></span>
