@@ -47,4 +47,8 @@
 
         }
 
+        public function scopeFindBySlug ($query, $slug) {
+            return $query->with('comments', 'tags', 'state')->where('slug', $slug)->firstOrFail();
+        }
+
     }
