@@ -51,4 +51,8 @@
             return $query->with('comments', 'tags', 'state')->where('slug', $slug)->firstOrFail();
         }
 
+       public function scopeFindByTag ($query) {
+            return $query->with('state', 'tags')->orderBy('created_at', 'desc')->paginate(6);
+        }
+
     }
