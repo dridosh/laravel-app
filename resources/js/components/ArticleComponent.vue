@@ -12,8 +12,7 @@
             <p class="card-text">{{ article.body }}</p>
             <p>Опубликовано: <i>{{ article.created_at }}</i></p>
             <div class="mt-3">
-<!--                <span class="badge bg-primary">{{ likes }} <i class="far fa-thumbs-up"></i></span>-->
-<!--                <span class="badge bg-danger">{{ views }} <i class="far fa-eye"></i></span>-->
+                <likes-component></likes-component>
                 <views-component></views-component>
             </div>
         </div>
@@ -27,6 +26,7 @@ export default {
         article() {
             return this.$store.state.article;
         },
+
         tagsLen() {
             return this.$store.state.article.tags.length;
         },

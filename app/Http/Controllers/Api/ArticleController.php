@@ -22,7 +22,6 @@
         public function show (Request $request) {
     //        $article = $this->service->getArticleBySlug($request);
             $slug=$request->get('slug');
-          //  dump($slug);
             $article=Article::FindBySlug($slug);
             return new ArticleResource($article);
        }
@@ -37,8 +36,11 @@
         public function likesIncrement (Request $request) {
             $slug=$request->get('slug');
             $article=Article::FindBySlug($slug);
+            $inc = $request->get('increment');
+            $inc ? $article->state->increment('likes') : $article->state->decrement('likes');
+            return new ArticleResource($article);
+        }
 
-       }
 
 
     }

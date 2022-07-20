@@ -3,16 +3,22 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
+
 export default {
     computed: {
         isLike(){
-            return this.$store.state.article.likeIt;
+            return this.$store.state.likeIt;
         },
-        ...mapGetters('article', ['articleLikes']),
+        articleLikes(){
+            return this.$store.state.article.statistic.likes;
+        }
+
+       // ...mapGetters('', ['articleLikes']),
     },
     methods: {
         addLike(){
-            this.$store.dispatch('article/addLike', {
+            this.$store.dispatch('addLike', {
                 slug : this.$store.state.slug,
                 increment: this.isLike
             })

@@ -12,8 +12,10 @@ export default new Vuex.Store({
                 likes: 0,
                 views: 0
             }
+
         },
-    slug: "",
+        slug: "",
+        likeIt: true,
     },
 
     actions: {
@@ -40,7 +42,23 @@ export default new Vuex.Store({
             }, 5000)
         },
 
-    },
+        addLike(context, payload) {
+            console.log(context);
+            console.log(payload);
+            console.log('addLikeMethod');
+            axios.put('/api/article-likes-increment', {
+                 slug: payload.slug,
+                 increment: payload.increment
+            }).then((response) => {
+                context.commit('SET_ARTICLE', response.data.article_data);
+                context.commit('SET_LIKE', !this.state.likeIt);
+            }).catch(() => {
+                console.log('Ошибка addLike')
+            });
+            console.log("После клика по кнопке");
+            console.log(this.state.likeIt);        }
+
+        },
 
     getters: {
 
@@ -59,7 +77,11 @@ export default new Vuex.Store({
         },
        SET_SLUG(state, payload){
             return  state.slug=payload;
-        }
+        },
+        SET_LIKE(state, payload) {
+            return state.likeIt = payload;
+        },
+
 
     }
 })
