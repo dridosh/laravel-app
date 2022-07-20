@@ -17,7 +17,6 @@ services:
     image: laravel_app
     container_name: lara_app
 
-
   nginx:
     image: nginx:latest
     volumes:
