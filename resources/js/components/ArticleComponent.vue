@@ -31,15 +31,6 @@ export default {
             return this.$store.state.article.tags.length;
         },
 
-        views() {
-            return this.$store.getters.articleViews;
-        },
-
-        likes() {
-            return this.$store.getters.articleLikes;
-        }
-
-
     },
 }
 </script>
