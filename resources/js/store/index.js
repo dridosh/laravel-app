@@ -12,7 +12,6 @@ export default new Vuex.Store({
                 likes: 0,
                 views: 0
             }
-
         },
         slug: "",
         likeIt: true,
@@ -27,25 +26,17 @@ export default new Vuex.Store({
             });
         },
         viewsIncrement(context, payload){
-            console.log(context);
-            console.log(payload);
-            console.log("rootState.slug", context.rootState.slug)
-            console.log("rootGetters.articleSlugRevers", context.rootGetters.articleSlugRevers)
             setTimeout(() => {
                 axios.put('/api/article-views-increment',  {slug:payload }).then((response) =>{
                 // axios.put('/api/article-views-increment',  {params:{slug:payload}}).then((response) =>{ !!! ОШИБКА !!! params:
                     context.commit('SET_ARTICLE', response.data.article_data)
-                    console.log( response.data.article_data)
-                }).catch(()=>{
+                 }).catch(()=>{
                     console.log('Ошибка')
                 });
             }, 5000)
         },
 
         addLike(context, payload) {
-            console.log(context);
-            console.log(payload);
-            console.log('addLikeMethod');
             axios.put('/api/article-likes-increment', {
                  slug: payload.slug,
                  increment: payload.increment
@@ -55,8 +46,7 @@ export default new Vuex.Store({
             }).catch(() => {
                 console.log('Ошибка addLike')
             });
-            console.log("После клика по кнопке");
-            console.log(this.state.likeIt);        }
+       }
 
         },
 

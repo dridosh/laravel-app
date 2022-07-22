@@ -10,7 +10,7 @@ export default {
         }
     },
     mounted() {
-        console.log('Component Views mounted.')
+
     }
 }
 </script>
