@@ -23,4 +23,4 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     Route::get('article-json', [ArticleController::class, 'show']);
     Route::put('article-views-increment',[ArticleController::class,'viewsIncrement']);
     Route::put('article-likes-increment',[ArticleController::class,'likesIncrement']);
- //   Route::post('article-add-comment', [CommentController::class, 'store']);
+    Route::post('article-add-comment', [CommentController::class, 'store']);
