@@ -6,12 +6,13 @@ Vue.use(Vuex)
 export default new Vuex.Store({
     state: {
         article: {
-            comments: [],
+            comments:[],
             tags: [],
-            statistic: {
+            statistic:{
                 likes: 0,
                 views: 0
             }
+
         },
         slug: "",
         likeIt: true,
@@ -21,16 +22,16 @@ export default new Vuex.Store({
 
     actions: {
         getArticleData(context, payload) {
-            axios.get('/api/article-json', {params: {slug: payload}}).then((response) => {
+            axios.get('/api/article-json' , {params:{slug:payload}}).then((response) =>{
                 context.commit('SET_ARTICLE', response.data.article_data)
-            }).catch(() => {
+            }).catch(()=>{
                 console.log('Ошибка')
             });
         },
         viewsIncrement(context, payload) {
             setTimeout(() => {
-                axios.put('/api/article-views-increment', {slug: payload}).then((response) => {
-                    // axios.put('/api/article-views-increment',  {params:{slug:payload}}).then((response) =>{ !!! ОШИБКА !!! params:
+                axios.put('/api/article-views-increment',  {slug:payload }).then((response) =>{
+                // axios.put('/api/article-views-increment',  {params:{slug:payload}}).then((response) =>{ !!! ОШИБКА !!! params:
                     context.commit('SET_ARTICLE', response.data.article_data)
                 }).catch(() => {
                     console.log('Ошибка')
@@ -39,9 +40,12 @@ export default new Vuex.Store({
         },
 
         addLike(context, payload) {
+            console.log(context);
+            console.log(payload);
+            console.log('addLikeMethod');
             axios.put('/api/article-likes-increment', {
-                slug: payload.slug,
-                increment: payload.increment
+                 slug: payload.slug,
+                 increment: payload.increment
             }).then((response) => {
                 context.commit('SET_ARTICLE', response.data.article_data);
                 context.commit('SET_LIKE', !this.state.likeIt);
@@ -71,25 +75,25 @@ export default new Vuex.Store({
             });
         }
 
-    },
+        },
 
     getters: {
 
-        articleViews(state) {
-            return state.article.statistic.views;
+        articleViews(state){
+               return state.article.statistic.views;
         },
 
-        articleLikes(state) {
-            return state.article.statistic.likes;
+        articleLikes(state){
+                 return state.article.statistic.likes;
         }
     },
 
     mutations: {
-        SET_ARTICLE(state, payload) {
-            return state.article = payload;
+        SET_ARTICLE(state, payload){
+            return  state.article=payload;
         },
-        SET_SLUG(state, payload) {
-            return state.slug = payload;
+       SET_SLUG(state, payload){
+            return  state.slug=payload;
         },
         SET_LIKE(state, payload) {
             return state.likeIt = payload;
